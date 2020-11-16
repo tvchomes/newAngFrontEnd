@@ -1,0 +1,93 @@
+<div class="form-header">
+    <div [hidden]="submitted" style="width: 400px;">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">ID</label>
+            <input type="text" class="form-control" id="id" required [(ngModel)]="employee.id" name="id">
+          </div>
+      
+          <div class="form-group">
+            <label for="name"> Name</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="employee.name" name="name">
+          </div>
+      
+          <div class="form-group">
+            <label for="name">UserName</label>
+            <input type="text" class="form-control" id="username" required [(ngModel)]="employee.username" name="username">
+          </div>
+
+
+          <div class="form-group">
+            <label for="name"> Departmentid</label>
+            <input type="text" class="form-control" id="departmentid" required [(ngModel)]="employee.departmentid" name="departmentid">
+          </div>
+      
+      
+         <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
+      
+      <div [hidden]="!submitted">
+        <h4>You submitted successfully!</h4>
+        <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+      </div>
+
+  </div>
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New Employee</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="editForm" novalidate>
+        <div class="form-group"> 
+         <label for="id">Id</label> 
+         <div class="input-group"> 
+            <input formControlName="id" class="form-control"> 
+         </div> 
+       </div>
+        <div class="form-group">
+          <label for="firstname">Firstname</label>
+          <div class="input-group">
+            <input formControlName="firstname" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastname">Lastname</label>
+          <div class="input-group">
+            <input formControlName="lastname" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="department">Department</label>
+          <div class="input-group">
+            <input formControlName="department" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <div class="input-group">
+            <input formControlName="email" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <div class="input-group">
+            <input formControlName="country" class="form-control">
+          </div>
+        </div>
+        <div class="border text-center"> <button data-dismiss="modal" class="btn btn-info">Save Changes</button> </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+
+  <button class="btn btn-lg btn-outline-primary" (click)="openDetails(content, employee)">Add Employee</button>
+
+<hr>
+
+<pre>{{ closeResult }}</pre>

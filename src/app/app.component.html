@@ -1,0 +1,73 @@
+Farm2Market
+<div class="page-wrapper">
+
+  <!-- MENU SIDEBAR-->
+  <aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+      <a routerLink="/products">
+        <img src="assets/images/farmphoto.png" alt="farm2market" class="img-responsive">
+      </a>
+      </div>
+     
+      <app-create-employee></app-create-employee>
+      <app-product-category-menu></app-product-category-menu>
+
+     
+
+    </aside>
+    <!-- END MENU SIDEBAR-->
+  
+    <div class="page-container">
+      <!-- HEADER DESKTOP-->
+      <header class="header-desktop">
+        <div class="section-content section-content-p30">
+          <div class="container-fluid">
+            <div class="header-wrap">
+             
+              <app-search></app-search>
+              
+              <app-cart-status></app-cart-status>
+              
+             
+
+            </div>
+            <div class="account-wrap"></div>
+          </div>
+        </div>
+      </header>
+      <!-- END HEADER DESKTOP-->
+     
+      <!-- MAIN CONTENT-->
+      <app-employee-list></app-employee-list><app-task-list></app-task-list>
+      <router-outlet></router-outlet>
+   
+    </div>
+  </div>
+  <div class="container mt-5">
+   <h2>Stripe Checkout</h2>
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <button (click)="pay(20)" class="btn btn-primary btn-block">Pay $20</button>
+    </div>
+    <div class="col-md-4">
+      <button (click)="pay(30)" class="btn btn-success btn-block">Pay $30</button>
+    </div>
+    <div class="col-md-4">
+      <button (click)="pay(50)" class="btn btn-info btn-block">Pay $50</button>
+    </div>    
+  </div>
+  <p class="mt-5">
+      Try it out using the test card number <b>4242 4242 4242 4242</b>, a random three-digit CVC number, any expiration date in the future, and a random five-digit U.S. ZIP code.
+  </p>
+</div>
+
+  <!-- ENDS PAGE CONTAINER -->
+  
+  <footer>
+  
+    <ul>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="#">Help</a></li>
+   </ul>
+  </footer>

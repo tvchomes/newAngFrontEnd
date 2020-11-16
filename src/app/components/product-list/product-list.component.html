@@ -1,0 +1,23 @@
+<table class="table">
+
+    <thead class="thead-dark">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let pr of products">
+            <td class="align-middle">
+                <img src="{{ pr.imageUrl }}" height="50" />
+            </td>
+            <td class="align-middle">{{ pr.name}}</td>
+            <td class="align-middle">{{ pr.price | currency:'USD'}}</td>
+            <td class="align-middle">{{ pr.description}}</td>
+        </tr>
+
+    </tbody>
+</table>

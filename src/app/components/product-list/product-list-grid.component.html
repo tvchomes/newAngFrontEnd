@@ -1,0 +1,33 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- looping thru products -->
+                <div *ngFor="let pr of products" class="col-md-3">
+
+                    <div class="product-box">
+                        
+                        <a routerLink="/products/{{pr.id}}">
+                        <img src="{{ pr.imageUrl }}" class="img-responsive">
+                            </a>
+                    
+                         <a routerLink="/products/{{pr.id}}">
+                        <h1>{{ pr.name }}</h1>
+                         </a>
+
+                        <div class="price">{{ pr.price | currency:'USD' }}</div>
+                        <button (click)="addToCart(pr)" class="btn btn-primary btn-sm">Add to cart</button>
+                    </div>
+
+                </div>
+
+                <!-- if products empty then display a message-->
+                <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    No products found.
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
